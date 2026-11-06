@@ -1,0 +1,129 @@
+ Ильина С.Н. -------------  ПАСПОРТ СИСТЕМЫ
+
+student@sysadmin-host:~$ whoami && id   команда
+student              
+uid=1001(student) gid=1001(student) groups=1001(student) вывод/ Показывает пользователя и группы к которым он принадлежит.
+
+student@sysadmin-host:~$ uname -a  команда
+Linux sysadmin-host 5.15.0-198-generic #208-Ubuntu SMP Fri Sep 4 10:22:38 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux    вывод/ Информация о ядре системы и, архитектуре и имени хоста.
+
+student@sysadmin-host:~$ cat /etc/os-release   команда
+PRETTY_NAME="Ubuntu 22.04.5 LTS"   
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy        вывод/ Название и версия ОС.
+
+student@sysadmin-host:~$ uptime    команда
+ 20:35:44 up 50 min,  1 user,  load average: 0.10, 0.21, 0.09 вывод/ Показывает время, время работы системы с момента запуска, количество пользователей, нагрузку на систему.
+
+student@sysadmin-host:~$ free -h  команда
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       199Mi       911Mi       0.0Ki       787Mi       1.5Gi
+Swap:             0B          0B          0B       вывод/ Использование оперативной памяти.
+
+student@sysadmin-host:~$ df -h  команда
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           190M  872K  189M   1% /run
+/dev/sda1       9.6G  1.9G  7.7G  20% /
+tmpfs           950M     0  950M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda15      105M  6.1M   99M   6% /boot/efi
+tmpfs           190M  4.0K  190M   1% /run/user/1000
+tmpfs           190M  4.0K  190M   1% /run/user/1001 вывод/Использование дискового пространства.
+
+student@sysadmin-host:~$ lsblk    команда
+NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0     7:0    0    74M  1 loop /snap/core22/2955
+loop1     7:1    0  44.7M  1 loop /snap/snapd/28254
+loop2     7:2    0 115.2M  1 loop /snap/lxd/40911
+sda       8:0    0    10G  0 disk
+├─sda1    8:1    0   9.9G  0 part /
+├─sda14   8:14   0     4M  0 part
+└─sda15   8:15   0   106M  0 part /boot/efi
+sr0      11:0    1    54K  1 rom   вывод/ Список всех блочных устройств.
+
+student@sysadmin-host:~$ nproc   команда
+2                                вывод/ Количество доступных процессорных ядер.
+
+student@sysadmin-host:~$ ps aux | head -20   команда
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.6 102028 12836 ?        Ss   19:45   0:00 /sbin/init
+root           2  0.0  0.0      0     0 ?        S    19:45   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   19:45   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   19:45   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   19:45   0:00 [slub_flushwq]
+root           6  0.0  0.0      0     0 ?        I<   19:45   0:00 [netns]
+root           7  0.0  0.0      0     0 ?        I    19:45   0:00 [kworker/0:0-events]
+root           8  0.0  0.0      0     0 ?        I<   19:45   0:00 [kworker/0:0H-events_highpri]
+root          10  0.0  0.0      0     0 ?        I<   19:45   0:00 [mm_percpu_wq]
+root          11  0.0  0.0      0     0 ?        S    19:45   0:00 [rcu_tasks_rude_]
+root          12  0.0  0.0      0     0 ?        S    19:45   0:00 [rcu_tasks_trace]
+root          13  0.0  0.0      0     0 ?        S    19:45   0:00 [ksoftirqd/0]
+root          14  0.0  0.0      0     0 ?        I    19:45   0:00 [rcu_sched]
+root          15  0.0  0.0      0     0 ?        S    19:45   0:00 [migration/0]
+root          16  0.0  0.0      0     0 ?        S    19:45   0:00 [idle_inject/0]
+root          18  0.0  0.0      0     0 ?        S    19:45   0:00 [cpuhp/0]
+root          19  0.0  0.0      0     0 ?        S    19:45   0:00 [cpuhp/1]
+root          20  0.0  0.0      0     0 ?        S    19:45   0:00 [idle_inject/1]
+root          21  0.0  0.0      0     0 ?        S    19:45   0:00 [migration/1]    вывод/  Список запущенных процессов, идентификаторы PID, использование ресурсов.
+
+student@sysadmin-host:~$ top -bn1 | head -20    команда
+top - 20:37:12 up 51 min,  1 user,  load average: 0.02, 0.15, 0.08
+Tasks: 103 total,   1 running, 102 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   1898.3 total,    907.6 free,    202.8 used,    787.9 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   1537.4 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0  102028  12836   8264 S   0.0   0.7   0:00.30 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+      7 root      20   0       0      0      0 I   0.0   0.0   0:00.12 kworker/0:0-events
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq
+     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_
+     12 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace
+     13 root      20   0       0      0      0 S   0.0   0.0   0:00.07 ksoftirqd/0
+     14 root      20   0       0      0      0 I   0.0   0.0   0:00.12 rcu_sched     вывод/ 20 первых процессов,состояние системы, нагрузка на CPU и память.
+
+student@sysadmin-host:~$ cat /proc/meminfo | head -10    команда
+MemTotal:        1943832 kB
+MemFree:          928860 kB
+MemAvailable:    1573864 kB
+Buffers:           20660 kB
+Cached:           744892 kB
+SwapCached:            0 kB
+Active:           529364 kB
+Inactive:         296524 kB
+Active(anon):        808 kB
+Inactive(anon):    69480 kB    вывод/ Подробная информация об использовании оперативной памяти.
+
+student@sysadmin-host:~$ ls -l /etc/ | head -15 команда
+total 836
+drwxr-xr-x 2 root root       4096 Oct 20 13:53 PackageKit
+drwxr-xr-x 4 root root       4096 Oct 20 13:52 X11
+-rw-r--r-- 1 root root       3028 Oct 20 13:51 adduser.conf
+drwxr-xr-x 2 root root       4096 Oct 20 13:55 alternatives
+drwxr-xr-x 3 root root       4096 Oct 20 13:53 apparmor
+drwxr-xr-x 8 root root       4096 Oct 20 13:53 apparmor.d
+drwxr-xr-x 3 root root       4096 Oct 20 13:53 apport
+drwxr-xr-x 8 root root       4096 Oct 20 13:56 apt
+-rw-r--r-- 1 root root       2319 Jan  6  2022 bash.bashrc
+-rw-r--r-- 1 root root         45 Nov 11  2021 bash_completion
+drwxr-xr-x 2 root root       4096 Oct 20 13:53 bash_completion.d
+-rw-r--r-- 1 root root        367 Dec 16  2020 bindresvport.blacklist
+drwxr-xr-x 2 root root       4096 Apr  7  2022 binfmt.d
+drwxr-xr-x 2 root root       4096 Oct 20 13:53 byobu
+ вывод/ Показывает список файлов и папок в директории /etc с подробной информацией (права, владелец, дата изменения).
+
